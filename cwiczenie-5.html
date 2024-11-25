@@ -2,30 +2,30 @@
 <html lang="pl">
 
 <head>
-
-	<meta charset="utf-8">
-	<title>5 - Instrukcja warunkowa w JavaScript</title>
-	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
+    <meta charset="utf-8">
+    <title>5 - Instrukcja warunkowa w JavaScript</title>
+    <link href="arkusz-cwiczenia.css" rel="stylesheet">
 </head>
 
 <body>
+    <label> Którą bramkę wybierasz(od 1 do 3): <input type="number" id="bramka"> </label>
+    <input type="submit" value="Wybieram bramkę" onclick="teleturniej()">
+    <div id="wynik"></div>
 
-	<label> Którą bramkę wybierasz: <input type="number" id="bramka"> </label>
+    <script>
+        function teleturniej() {
+            let numerBramki = parseInt(document.getElementById("bramka").value); 
+            let wynik = document.getElementById("wynik");
+            let lucky = Math.floor(Math.random() * 3) + 1; 
 
-	<input type="submit" value="Wybieram bramkę" onclick="teleturniej()">
+            if (numerBramki < 1 || numerBramki > 3) {
+                wynik.innerHTML = "Proszę wprowadzić numer bramki od 1 do 3!";
+                return;
+            }
 
-	<div id="wynik"></div>
-	
-	<script>
-	
-		function teleturniej()
-		{
-			var lucky = Math.floor(Math.random() * 3) + 1;
-			
-		}
-
-	</script>
-
+            wynik.innerHTML = numerBramki == lucky ? `Hurra! Wygrałeś samochód` : `Niestety, Samochód znajdował się w bramce nr ${lucky}...`;
+           
+        }
+    </script>
 </body>
 </html>
