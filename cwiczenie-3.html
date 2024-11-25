@@ -2,30 +2,49 @@
 <html lang="pl">
 
 <head>
-
 	<meta charset="utf-8">
 	<title>3 - Instrukcja warunkowa w JavaScript</title>
 	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
 </head>
 
 <body>
-
 	P = ( <input type="number" id="x"> , <input type="number" id="y"> )
-
 	<input type="submit" value="Sprawdź ćwiartkę" onclick="ktora_cwiartka()">
-
 	<div id="wynik"></div>
-	
+
 	<script>
-	
-		function ktora_cwiartka()
-		{
-			
-			
-		}
+		function ktora_cwiartka() {
+			let x = parseFloat(document.getElementById("x").value);
+            let y = parseFloat(document.getElementById("y").value);
+			let wynik = document.getElementById("wynik");
 
+		
+            if (x == 15 && y == 96) {
+                wynik.innerHTML = `Kartezjusz żył w latach 1596 - 1650. Pochodził z drobnej szlachty. 
+                Kartezjusz był półsierotą - jego matka zmarła przy porodzie. 
+                W ósmym roku życia Kartezjusz trafił do znakomitej szkoły w La Fleche. Była to elitarna szkoła, prowadzona przez jezuitów. 
+                Po ukończeniu edukacji przez krótki czas przebywał w Paryżu, a gdy wybuchła wojna trzydziestoletnia (1618), zaciągnął się do wojska. 
+                Po powrocie z kampanii czeskiej osiadł w Holandii, kilkakrotnie zmieniając miejsce zamieszkania - dzieła, które publikował, wywoływały niekiedy ostre protesty teologów, a nawet pozwy sądowe. 
+                Kartezjusz, choć miał wielu przyjaciół wśród uczonych i arystokracji, wiódł samotny tryb życia. W 1649 roku przybył do Szwecji na zaproszenie królowej Krystyny. 
+                Miał zostać jej nauczycielem, ale nie wytrzymał północnego klimatu, zachorował na zapalenie płuc i zmarł.`;
+            }
+            
+            else if (x > 0 && y > 0) {
+                wynik.innerHTML = "Liczba znajduje się w I ćwiartce";
+            } else if (x < 0 && y > 0) {
+                wynik.innerHTML = "Liczba znajduje się w ćwiartce II";
+            } else if (x < 0 && y < 0) {
+                wynik.innerHTML = "Liczba znajduje się w ćwiartce III";
+            } else if (x > 0 && y < 0) {
+                wynik.innerHTML = "Liczba znajduje się w ćwiartce IV";
+            } else if (x == 0 && y == 0) {
+                wynik.innerHTML = "Liczba znajduje się w punkcie zero";
+            } else if (x == 0) {
+                wynik.innerHTML = "Liczba znajduje się na osi Y";
+            } else if (y == 0) {
+                wynik.innerHTML = "Liczba znajduje się na osi X";
+            }
+        }
 	</script>
-
 </body>
 </html>
