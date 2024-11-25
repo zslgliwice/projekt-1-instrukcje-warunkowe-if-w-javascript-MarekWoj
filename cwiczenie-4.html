@@ -2,35 +2,91 @@
 <html lang="pl">
 
 <head>
-
-	<meta charset="utf-8">
-	<title>4 - Instrukcja warunkowa w JavaScript</title>
-	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
+    <meta charset="utf-8">
+    <title>4 - Instrukcja warunkowa w JavaScript</title>
+    <link href="arkusz-cwiczenia.css" rel="stylesheet">
 </head>
 
 <body>
+    <label> a = <input type="number" id="a"> </label>
+    <label> b = <input type="number" id="b"> </label>
+    <label> c = <input type="number" id="c"> </label>
 
-	<label> a = <input type="number" id="a"> </label>
-	<label> b = <input type="number" id="b"> </label>
-	<label> c = <input type="number" id="c"> </label>
+    <input type="submit" value="Informacje o liczbach" onclick="matematyka()">
 
-	<input type="submit" value="Informacje o liczbach" onclick="matematyka()">
+    <div id="wynik"></div>
 
-	<div id="wynik"></div>
-	
-	<script>
-	
-		function matematyka()
-		{
-			var a = document.getElementById('a').value;
-			var b = document.getElementById('b').value;
-			var c = document.getElementById('c').value;
-			
-			
-		}
+    <script>
+        function matematyka() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            
+            let najwiekszaLiczba;
+            if (a >= b && a >= c) {
+                najwiekszaLiczba = a;
+            } else if (b >= a && b >= c) {
+                najwiekszaLiczba = b;
+            } else {
+                najwiekszaLiczba = c;
+            }
 
-	</script>
 
+            let najmniejszaLiczba;
+            if (a <= b && a <= c) {
+                najmniejszaLiczba = a;
+            } else if (b <= a && b <= c) {
+                najmniejszaLiczba = b;
+            } else {
+                najmniejszaLiczba = c;
+            }
+
+            let wartoscBezwzgledna = {
+                a: Math.abs(a),
+                b: Math.abs(b),
+                c: Math.abs(c)
+            };
+
+       
+            let liczbaParzysta;
+            if (a % 2 == 0) {
+                liczbaParzysta = a;
+            } else if (b % 2 == 0) {
+                liczbaParzysta = b;
+            } else if (c % 2 == 0) {
+                liczbaParzysta = c;
+            }
+
+          
+            let wynikText = 
+                `Najmniejsza liczba:${najmniejszaLiczba}<br>
+                Największa liczba: ${najwiekszaLiczba}<br>
+                Wartości bezwzględne: ${wartoscBezwzgledna.a}, ${wartoscBezwzgledna.b},  ${wartoscBezwzgledna.c};
+                 <br>
+                `
+    
+            if (a % 2 == 0) {
+                wynikText += "Liczba "+ a +" jest parzysta<br>";
+            } else {
+                wynikText += "Liczba "+ a + " nie jest parzysta<br>";
+            }
+
+            if (b % 2 == 0) {
+                wynikText += "Liczba "+ b +"  jest parzysta<br>";
+            } else {
+                wynikText += "Liczba "+ b +" nie jest parzysta<br>";
+            }
+
+            if (c % 2 == 0) {
+                wynikText += "Liczba "+ c + " jest parzysta<br>";
+            } else {
+                wynikText += "Liczba "+ c +"  nie jest parzysta<br>";
+            }
+
+
+            document.getElementById("wynik").innerHTML = wynikText;
+        }
+        
+    </script>
 </body>
 </html>
