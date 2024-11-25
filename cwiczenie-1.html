@@ -2,32 +2,52 @@
 <html lang="pl">
 
 <head>
-
-	<meta charset="utf-8">
-	<title>1 - Instrukcja warunkowa w JavaScript</title>
-	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
+    <meta charset="utf-8">
+    <title>1 - Instrukcja warunkowa w JavaScript</title>
+    <link href="arkusz-cwiczenia.css" rel="stylesheet">
 </head>
 
 <body>
+    <label>
+        Podaj numer dnia tygodnia: <input type="number" id="getDay">
+    </label>
+    
+    <input type="submit" value="Zobacz nazwę dnia" onclick="getDayName()">
 
-	<label>
-		Podaj numer dnia tygodnia: <input type="number">
-	</label>
-	
-	<input type="submit" value="Zobacz nazwę dnia" onclick="getDayName()">
+    <div id="wynik"></div>
+    
+    <script>
+        function getDayName() {
+            let numerDnia = parseInt(document.getElementById("getDay").value);
+            let wynik = document.getElementById("wynik");
 
-	<div id="wynik"></div>
-	
-	<script>
-	
-		function getDayName()
-		{
-					
-			
-		}
-
-	</script>
-
+        switch (numerDnia) {
+                case 1:
+                 wynik.innerHTML = "Pierwszy dzień tygodnia to Monday - poniedziałek";
+                    break;
+              case 2:
+                  wynik.innerHTML = "Drugi dzień tygodnia to Tuesday - wtorek";
+                 break;
+              case 3:
+                  wynik.innerHTML = "Trzeci dzień tygodnia to Wednesday - środa";
+                    break;
+               case 4:
+                    wynik.innerHTML = "Czwarty dzień tygodnia to Thursday - czwartek";
+                   break;
+               case 5:
+                    wynik.innerHTML = "<span style='color: yellow;'>Piąty dzień tygodnia to Friday - piątek</span>";
+                    break;
+              case 6:
+                    wynik.innerHTML = "<span style='color: green;'>Szósty dzień tygodnia to Saturday - sobota</span>";
+                    break;
+                case 7:
+                    wynik.innerHTML = "<span style='color: green;'>Siódmy dzień tygodnia to Sunday - niedziela</span>";
+                    break;
+                default:
+                    wynik.innerHTML = "<span style='color: red;'>Podaj poprawny numer tygodnia</span>";
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>
